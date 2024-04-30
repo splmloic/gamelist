@@ -18,4 +18,4 @@ const callRoute = () => {
 window.addEventListener('hashchange', () => callRoute());
 window.addEventListener('DOMContentLoaded', () => callRoute());
 
-export { callRoute, API_KEY };
+export { callRoute, platformsSvg };

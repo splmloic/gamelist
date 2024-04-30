@@ -1,13 +1,72 @@
 @import "~bootstrap/scss/bootstrap";
-$bg-color: #44484d;
+$bg-color: #3a3a3a;
 $primary-color: #fff;
-$title-color: #a2d1fc;
+$title-color: #ff3f3f;
+
+$plateforme-width: 30px;
+$plateforme-height: 30px;
+$plateforme-background-size: 100% 100%;
+$plateforme-border: none;
 
 body {
     background-color: $bg-color;
     color: $primary-color;
 }
-
-h1 {
+h1{
     color: $title-color;
+}
+h2,a {
+    text-decoration: none;
+    color: $primary-color;
+}
+.cardGame.darken img {
+    filter: brightness(50%);
+    transition: filter 0.3s ease-in-out;
+  }
+.platform-img {
+    width: $plateforme-width;
+    height: $plateforme-height;
+    background-size: $plateforme-background-size;
+    border: $plateforme-border;
+}
+
+.pc {
+    @extend .platform-img;
+    background-image: url('../assets/images/pc.svg');
+}
+  
+.playstation {
+    @extend .platform-img;
+    background-image: url('../assets/images/playstation.svg');
+}
+  
+.xbox {
+    @extend .platform-img;
+    background-image: url('../assets/images/xbox.svg');
+}
+  
+.linux {
+    @extend .platform-img;
+    background-image: url('../assets/images/linux.svg');
+}
+  
+.mac {
+    @extend .platform-img;
+    background-image: url('../assets/images/apple-32.png');
+}
+.ios {
+    @extend .platform-img;
+    background-image: url('../assets/images/apple-32.png');
+}
+.nintendo {
+    @extend .platform-img;
+    background-image: url('../assets/images/switch.svg');
+}  
+.android {
+    @extend .platform-img;
+    background-image: url('../assets/images/mobile.svg');
+}
+.web{
+    @extend .platform-img;
+    background-image: url('../assets/images/internet.svg');
 }
