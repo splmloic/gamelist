@@ -5,12 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HyperGame</title>
 </head>
+<body>
     <a href="#">Home</a>
     <a href="#pagelist">PageList</a>
     <a href="#pagelist/borderlands">PageList borderlands</a>
-    <h1>THE HYPER GAME</h1>
-    <section id="pageContent" class="container">Choisissez un lien</section>
-
+    <div class="container">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <h1 class="m-0">The Hyper Progame</h1>
+            <form id="searchForm" class="d-flex">
+                <button type="submit" class="btn btn-primary searching"></button>
+                <input type="text" id="searchInput" class="form-control me-2" placeholder="Find a game...">
+            </form>
+          </div>
+          
+        <section id="pageContent" class="container">Choisissez un lien</section>
+        <section>
+            SPLMloïc @ 2024 - Fictionnal website for THE HACKING PROJECT
+        </section>
+    </div>
     <script  type="module" src="./index.js"></script>
-    </body>
+</body>
 </html>

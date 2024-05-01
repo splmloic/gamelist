@@ -18,4 +18,14 @@ const callRoute = () => {
 window.addEventListener('hashchange', () => callRoute());
 window.addEventListener('DOMContentLoaded', () => callRoute());
 
+const searchForm = document.getElementById('searchForm');
+searchForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+  const searchInput = document.getElementById('searchInput');
+  const searchTerm = searchInput.value.trim();
+  if (searchTerm) {
+    window.location.href = `#pagelist/${searchTerm}`;
+  }
+});
+
 export { callRoute, platformsSvg };
