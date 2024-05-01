@@ -1,5 +1,7 @@
-const Home = (argument = '') => {
-    console.log('Page List', argument);
+import { PageList } from './pageList.js';
+
+const Home = () => {
+    PageList();
 };
 
 export { Home };

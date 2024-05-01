@@ -14,7 +14,7 @@ const PageList = (argument = '') => {
         <div class="ratio-container ratio-16-9">
           <img src="${article.background_image}" class="img-fluid fimg game-img"></img>
         </div>
-          <h2><a href="#pagedetail/${article.id}">${article.name}</a></h2>
+          <h2><a href="#pagedetail/${article.id}" class="kinglink">${article.name}</a></h2>
           ${article.parent_platforms.map((platform) => `<svg class="platform-img ${platform.platform.slug}"></svg>`).join('\n')}
       </article>`
       ));
@@ -50,7 +50,6 @@ const PageList = (argument = '') => {
           displayResults(responseData.results.slice(0, totalArticles));
         });
     };
-
     fetchList(`https://api.rawg.io/api/games?key=${process.env.API_KEY}&page_size=27`, cleanedArgument);
   };
 
@@ -59,6 +58,7 @@ const PageList = (argument = '') => {
     preparePage();
   };
 
+
   const render = () => {
     pageContent.innerHTML = `
       <section class="page-list">
@@ -66,38 +66,39 @@ const PageList = (argument = '') => {
           <div><p>The Hyper Progame is the world’s premier event for computer and video games and related products. At The Hyper Progame, the video game industry’s top talent pack the Los Angeles Convention Center, connecting tens of thousands of the best, brightest, and most innovative in the interactive entertainment industry. For three exciting days, leading-edge companies, groundbreaking new technologies, and never-before-seen products will be showcased. The Hyper Progame connects you with both new and existing partners, industry executives, gamers, and social influencers providing unprecedented exposure to the entire video game industry, all under one roof. This text seems familiar.          </p></div>
           <div class="filter">
             <label for="platform">plateform : </label>
-          <select id="platform">
+            <select id="platform" class="selector">
             <option value="">any</option>
-            <option value="4">PC</option>
-            <option value="187">PlayStation 5</option>
-            <option value="1">Xbox One</option>
-            <option value="186">Xbox Series S/X</option>
-            <option value="7">Nintendo Switch</option>
-            <option value="3">iOS</option>
-            <option value="21">Android</option>
-            <option value="8">Nintendo 3DS</option>
-            <option value="9">Nintendo DS</option>
-            <option value="13">Nintendo DSi</option>
-            <option value="5">macOS</option>
-            <option value="6">Linux</option>
-            <option value="14">Xbox 360</option>
-            <option value="80">Xbox</option>
-            <option value="16">PlayStation 3</option>
-            <option value="27">PlayStation</option>
-            <option value="19">PS Vita</option>
-            <option value="17">PSP</option>
-            <option value="10">Wii U</option>
-            <option value="11">Wii</option>
-            <option value="105">GameCube</option>
-            <option value="83">Nintendo 64</option>
-            <option value="24">Game Boy Advance</option>
-            <option value="43">Game Boy Color</option>
-            <option value="26">Game Boy</option>
+            <option value="pc">PC</option>
+            <option value="playstation-5">PlayStation 5</option>
+            <option value="xbox-one">Xbox One</option>
+            <option value="xbox-series-sx">Xbox Series S/X</option>
+            <option value="nintendo-switch">Nintendo Switch</option>
+            <option value="ios">iOS</option>
+            <option value="android">Android</option>
+            <option value="nintendo-3ds">Nintendo 3DS</option>
+            <option value="nintendo-ds">Nintendo DS</option>
+            <option value="nintendo-dsi">Nintendo DSi</option>
+            <option value="macos">macOS</option>
+            <option value="linux">Linux</option>
+            <option value="xbox-360">Xbox 360</option>
+            <option value="xbox">Xbox</option>
+            <option value="playstation-3">PlayStation 3</option>
+            <option value="playstation">PlayStation</option>
+            <option value="ps-vita">PS Vita</option>
+            <option value="psp">PSP</option>
+            <option value="wii-u">Wii U</option>
+            <option value="wii">Wii</option>
+            <option value="gamecube">GameCube</option>
+            <option value="nintendo-64">Nintendo 64</option>
+            <option value="game-boy-advance">Game Boy Advance</option>
+            <option value="game-boy-color">Game Boy Color</option>
+            <option value="game-boy">Game Boy</option>
           </select>
+          
           </div>
           <div class="articles row g-4 py-5 row-cols-1 row-cols-lg-3">Loading...</div>
           <div class="d-flex justify-content-center">
-            <button class="btn btn-primary" id="count">Show More</button>
+            <button class="btn btn-danger" id="count">Show More</button>
           </div>
         </div>
       </section>
@@ -106,20 +107,15 @@ const PageList = (argument = '') => {
     preparePage();
     const loadMoreBtn = document.getElementById('count');
     loadMoreBtn.addEventListener('click', loadMoreArticles);
-    const platformSelect = document.getElementById('platform');
-    
-    const handlePlatformChange = () => {
-      const selectedPlatform = platformSelect.value;
-      console.log(selectedPlatform)
-      const apiUrl = `https://api.rawg.io/api/games?key=${process.env.API_KEY}&page_size=27`;
-      const platformUrl = selectedPlatform ? `&platforms=${selectedPlatform}` : '';
-      const finalUrl = apiUrl + platformUrl;
-      fetchList(finalUrl, argument);
-    };
-  
-    platformSelect.addEventListener('change', handlePlatformChange);
-  };
 
+    const searchInput = document.getElementById('platform');
+    searchInput.addEventListener('change', function(event) {
+      const searchTerm = searchInput.value.trim();
+      if (searchTerm) {
+        window.location.href = `#pagelist/${searchTerm}`;
+      }
+    });
+  };
   render();
 };
 

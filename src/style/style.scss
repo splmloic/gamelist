@@ -8,6 +8,34 @@ $plateforme-height: 30px;
 $plateforme-background-size: 100% 100%;
 $plateforme-border: none;
 
+.filter {
+    background-color: $title-color;
+    padding: 10px;
+    border-radius: 5px;
+    width: 15%;
+}
+
+.selector {
+    background-color: rgba(255, 255, 255, 0.0);;
+    border: none; 
+    outline: none; 
+    width: 100%; 
+    color: white; 
+}
+
+.selector option {
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 100%; 
+    color: black; 
+}
+select#platform {
+    background-color: rgba(255, 255, 255, 0.0);;
+    border: none; 
+    outline: none; 
+    width: 100%; 
+    color: white; 
+}
+
 body {
     background-color: $bg-color;
     color: $primary-color;
@@ -23,6 +51,31 @@ h1{
 a {
     text-decoration: none;
     color: $primary-color;
+}
+/* Style du formulaire */
+#searchForm {
+    display: flex; 
+}
+
+.btn.searching {
+    background-color: transparent; /* Fond transparent */
+    border: none; /* Pas de bordure */
+    outline: none; /* Pas de contour de focus */
+    cursor: pointer; /* Curseur pointer */
+    /* Ajoutez ici vos styles pour l'icône du bouton */
+}
+
+.form-control {
+    flex: 1; /* Expansion pour remplir l'espace disponible */
+    border: none; /* Pas de bordure */
+    outline: none; /* Pas de contour de focus */
+    background-color: transparent;
+}
+.form-control:hover{
+    flex: 1; /* Expansion pour remplir l'espace disponible */
+    border: none; /* Pas de bordure */
+    outline: none; /* Pas de contour de focus */
+    background-color: transparent;
 }
 
 .ratio-container {
@@ -55,8 +108,12 @@ a {
     z-index: 1000;
     word-wrap: break-word;
     overflow: auto; 
-    max-width: 18%;
+    max-width: 25%;
+    max-height: fit-content;
     font-size: small;
+}
+.kinglink{
+    z-index: 10000;
 }
 .store:hover{
     border-bottom: 2px solid $title-color;
